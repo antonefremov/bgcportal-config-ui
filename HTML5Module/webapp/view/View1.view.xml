@@ -1,0 +1,56 @@
+<mvc:View class="sapUiSizeCompact" controllerName="ms.HTML5Module.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Process configurations">
+					<content>
+                     <Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/ProcessType'
+				}"
+				noDataText=""
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                        
+                        <ToolbarSpacer />
+                         <Button id="createMappingId"                
+                            text="Assign new Task"
+                            press="onAssignNewTask" 
+                            type="Emphasized"/>
+                          </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+				<columns>
+                    <Column id="processId">
+						<Text text="Process ID" id="processIdText"/>
+					</Column>
+					<Column id="screeningTaskId">
+						<Text text="Assigned Screening Tasks" id="nameColumnTitle"/>
+					</Column>
+                    <Column id="deleteMapping" width="5%">
+						<Text text="" />
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{processTypeID}" />
+                            <Text text="{screeningTaskType/description}" />
+                            <Button icon="sap-icon://delete" type="Transparent" press="onDeleteMapping"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+            </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

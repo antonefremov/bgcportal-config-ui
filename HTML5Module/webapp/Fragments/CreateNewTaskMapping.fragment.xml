@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    class="sapUiSizeCompact">
+	<Dialog title="Create Process Mapping">
+	<content>
+        <l:VerticalLayout>
+            <l:VerticalLayout> 
+                <Text text="Process ID:" class="sapUiTinyMargin"/>
+                <ComboBox id="ProcessComboBox" class="sapUiTinyMarginBegin" >
+                    <items>
+                        <core:Item key="001" text="001" />
+                        <core:Item key="002" text="002" />
+                    </items>
+                </ComboBox>
+            </l:VerticalLayout>
+            <l:VerticalLayout> 
+                <Text text="Screening Tasks:" class="sapUiTinyMargin"/>
+                <ComboBox id="ScreeningTaskComboBox" class="sapUiTinyMarginBegin sapUiTinyMarginBottom"
+                     items = "{/ScreeningTaskType}">
+					<core:Item key="{ID}" text="{description}"/>                 
+                </ComboBox>
+            </l:VerticalLayout>
+        </l:VerticalLayout>
+	  </content>
+	  <buttons>
+	    <Button text="Save" press="onSavePress" type="Emphasized" />
+        <Button text="Cancel" press="onCancelPress" />
+	  </buttons>
+	</Dialog>
+</core:FragmentDefinition>
